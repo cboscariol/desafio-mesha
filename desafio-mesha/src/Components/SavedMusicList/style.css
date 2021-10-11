@@ -1,0 +1,31 @@
+.shadowModal {
+	background-color: rgba(32, 32, 32, 0.6);
+	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+}
+
+.containerModal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1001;
+	width: 750px;
+	height: min-content;
+	align-items: center;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0px 4px 16px rgba(50, 50, 50, 0.4);
+	border-radius: 16px;
+	background-color: white;
+}
+
+.close-icon {
+	width: 20px;
+	position: fixed;
+	right: 20px;
+}
