@@ -19,7 +19,7 @@
 	background-color: rgba(255, 255, 255, 0.5);
 	height: 50px;
 	width: 160px;
-	color: rgb(19, 14, 14);
+	color: rgb(31, 31, 31);
 	position: absolute;
 	top: 60px;
 	right: 50px;
@@ -30,6 +30,8 @@
 	-webkit-transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	transform: scale(1.1);
+	background-color: rgba(105, 103, 103, 0.5);
+	color: #fff;
 }
 
 .header-container {
