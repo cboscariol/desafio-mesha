@@ -14,16 +14,32 @@ function SavedMusicList({ onClose }) {
       <div className='containerModal'>
         <img className='close-icon' src={close} alt="fechar" onClick={onClose} />
           <h3>Sua lista</h3>
-          <ul>
             {Object.entries(data).map(([date, list]) => (
-            <li className='music-list'>
-              <p>
-                {list.gender}
-              </p>
-            </li>
-
+             <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    {date}
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    {list.gender}
+                    {list.city}
+                    <ul>
+                        {list.musics.map((music) => (
+                          <li>
+                            {music.track.title}
+                          </li>
+                        ))}
+                    </ul>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
             ))}
-          </ul>
+         
       </div>
     </>
   )
