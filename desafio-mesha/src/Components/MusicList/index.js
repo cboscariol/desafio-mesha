@@ -9,8 +9,23 @@ function MusicList() {
 
   const getMusicList = async(gender) => {
    const response =  await getMusics(gender) 
-   setMusicList(response.tracks.hits)
-   console.log(response)
+   const musics = response.tracks.hits
+   setMusicList(musics)
+  }
+
+  const saveMusicList = () => {
+    const currentStorageMusics = localStorage.getItem('MUSICS') || '{}'
+    const gender = getMusicGender(weather.main.temp)
+    const dataSaveStore = {
+      [new Date()]: {
+        gender,
+        musics: musicList,
+        city: weather.name
+      },
+      ...JSON.parse(currentStorageMusics),
+   }
+
+   localStorage.setItem('MUSICS', JSON.stringify(dataSaveStore))
   }
 
 
@@ -42,18 +57,15 @@ function MusicList() {
     <div className='container-music-list'>
       <h3 className='h3-music-list'>Lista de músicas sugeridas a partir da temperatura</h3>
       
-      {musicList.length && musicList.map(music => (
+      {musicList.map(music => (
       <ul>
         <li className='music-list'>
-          <p>
-            {music.track.title}
-          </p>
+          <a href={music.track.share.href}>{music.track.title}</a>
         </li>
       </ul>
        )
       )} 
-      
-      <button className='btn-save-musics'>Salvar lista</button>
+      <button className='btn-save-musics' onClick={saveMusicList}>Salvar lista</button>
     </div>
   )
 }

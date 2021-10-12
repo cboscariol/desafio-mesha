@@ -6,7 +6,10 @@ function WeatherProvider({ children }) {
 	const [weather, setWeather] = useState()
 
 	return (
-		<WeatherContext.Provider value={ {weather, setWeather} }>
+		<WeatherContext.Provider value={ 
+			{weather, 
+			setWeather, 
+			}}>
 			{children}
 		</WeatherContext.Provider>
 	)
