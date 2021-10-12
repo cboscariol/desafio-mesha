@@ -1,13 +1,14 @@
 import './style.css';
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import SavedMusicList from '../SavedMusicList';
-import {getWeather} from '../../services'
+import { getWeather } from '../../services'
+import { WeatherContext } from '../../context/WeatherContext'
 
 
 function Header() {
   const [openModal, setOpenModal] = useState(false)
   const [value, setValue] = useState({local: ''})
-  const [weather, setWeather] = useState()
+  const { setWeather } = useContext(WeatherContext)
 
   const handleModal = () => {
     setOpenModal(true)
