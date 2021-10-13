@@ -15,7 +15,8 @@
 	transform: translate(-50%, -50%);
 	z-index: 1001;
 	width: 750px;
-	height: min-content;
+	max-height: 80vh;
+	overflow-y: scroll;
 	align-items: center;
 	margin: 0 auto;
 	padding: 20px;
@@ -28,4 +29,9 @@
 	width: 20px;
 	position: fixed;
 	right: 20px;
+}
+
+.delete-btn {
+	transform: translate(470px);
+	margin-bottom: 10px;
 }

@@ -13,14 +13,8 @@
 	width: 160px;
 	color: rgb(19, 14, 14);
 	font-family: "Karla", sans-serif;
-}
-
-.btn-save-musics:hover {
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
-	background-color: rgba(105, 103, 103, 0.5);
-	color: #fff;
+	cursor: pointer;
+	margin-bottom: 20px;
 }
 
 .music-list {

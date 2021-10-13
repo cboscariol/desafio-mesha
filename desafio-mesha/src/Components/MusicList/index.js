@@ -7,6 +7,7 @@ function MusicList() {
   const { weather } = useContext(WeatherContext)
   const [musicList, setMusicList] = useState([])
 
+
   const getMusicList = async(gender) => {
    const response =  await getMusics(gender) 
    const musics = response.tracks.hits
@@ -14,18 +15,21 @@ function MusicList() {
   }
 
   const saveMusicList = () => {
+    console.log("teste")
     const currentStorageMusics = localStorage.getItem('MUSICS') || '{}'
     const gender = getMusicGender(weather.main.temp)
     const dataSaveStore = {
       [new Date()]: {
         gender,
         musics: musicList,
-        city: weather.name
+        city: weather.name,
+        temp: weather.main.temp
       },
       ...JSON.parse(currentStorageMusics),
    }
 
    localStorage.setItem('MUSICS', JSON.stringify(dataSaveStore))
+   console.log(dataSaveStore)
   }
 
 
@@ -35,6 +39,10 @@ function MusicList() {
       getMusicList(gender)
     }
   }, [weather])
+
+  useEffect(() => {
+    console.log(musicList)
+  }, [musicList])
 
 
  const getMusicGender = (weather) => {
@@ -65,7 +73,7 @@ function MusicList() {
       </ul>
        )
       )} 
-      <button className='btn-save-musics' onClick={saveMusicList}>Salvar lista</button>
+     <button className='btn-save-musics' disabled={!musicList.length} onClick={saveMusicList}>Salvar lista</button>
     </div>
   )
 }
